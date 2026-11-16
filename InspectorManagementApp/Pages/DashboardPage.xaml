@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InspectorManagementApp.Pages.DashboardPage"
+    Title="Dashboard">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Dashboard Heading -->
+            <VerticalStackLayout Spacing="5">
+                <Label
+                    Text="Inspector Dashboard"
+                    FontSize="26"
+                    FontAttributes="Bold" />
+
+                <Label
+                    Text="Overview of inspection activities"
+                    FontSize="14" />
+            </VerticalStackLayout>
+
+            <!-- Summary Cards -->
+            <Grid
+                RowDefinitions="Auto, 12, Auto"
+                ColumnDefinitions="*, 12, *">
+
+                <!-- Total -->
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Padding="16"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12">
+
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Total Inspections" FontSize="13"/>
+                        <Label Text="24"
+                               FontSize="30"
+                               FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Pending -->
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Padding="16"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12">
+
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Pending" FontSize="13"/>
+                        <Label Text="6"
+                               FontSize="30"
+                               FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- In Progress -->
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Padding="16"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12">
+
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="In Progress" FontSize="13"/>
+                        <Label Text="8"
+                               FontSize="30"
+                               FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Completed -->
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Padding="16"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12">
+
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Completed" FontSize="13"/>
+                        <Label Text="10"
+                               FontSize="30"
+                               FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </Grid>
+
+            <!-- Today's Inspections -->
+            <VerticalStackLayout Spacing="15">
+
+                <Label
+                    Text="Today's Inspections"
+                    FontSize="21"
+                    FontAttributes="Bold"/>
+
+                <!-- Inspection 1 -->
+                <Border Padding="14"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 10">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Factory Safety Inspection"
+                               FontSize="16"
+                               FontAttributes="Bold"/>
+                        <Label Text="Site: Industrial Area, Building A"
+                               FontSize="13"/>
+                        <Label Text="Scheduled: 10:00 AM"
+                               FontSize="13"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Inspection 2 -->
+                <Border Padding="14"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 10">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Equipment Quality Check"
+                               FontSize="16"
+                               FontAttributes="Bold"/>
+                        <Label Text="Site: Manufacturing Unit 2"
+                               FontSize="13"/>
+                        <Label Text="Scheduled: 12:30 PM"
+                               FontSize="13"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Inspection 3 -->
+                <Border Padding="14"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 10">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Building Compliance Review"
+                               FontSize="16"
+                               FontAttributes="Bold"/>
+                        <Label Text="Site: Office Complex"
+                               FontSize="13"/>
+                        <Label Text="Scheduled: 03:00 PM"
+                               FontSize="13"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+
+            <!-- Inspection Priority Tags -->
+            <VerticalStackLayout Spacing="10">
+
+                <Label
+                    Text="Inspection Priorities"
+                    FontSize="18"
+                    FontAttributes="Bold"/>
+
+                <FlexLayout
+                    Direction="Row"
+                    Wrap="Wrap"
+                    JustifyContent="Start"
+                    AlignItems="Center">
+
+                    <Border Padding="14,8"
+                            Margin="0,0,8,8"
+                            StrokeShape="RoundRectangle 20">
+                        <Label Text="High"/>
+                    </Border>
+
+                    <Border Padding="14,8"
+                            Margin="0,0,8,8"
+                            StrokeShape="RoundRectangle 20">
+                        <Label Text="Medium"/>
+                    </Border>
+
+                    <Border Padding="14,8"
+                            Margin="0,0,8,8"
+                            StrokeShape="RoundRectangle 20">
+                        <Label Text="Low"/>
+                    </Border>
+
+                </FlexLayout>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

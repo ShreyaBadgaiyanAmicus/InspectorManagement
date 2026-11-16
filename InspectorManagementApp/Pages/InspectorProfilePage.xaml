@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InspectorManagementApp.Pages.InspectorProfilePage"
+    Title="Inspector Profile"
+    SafeAreaEdges="All">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="25"
+            Spacing="20">
+
+            <!-- Page Heading -->
+            <Label
+                Text="Inspector Profile"
+                FontSize="26"
+                FontAttributes="Bold"
+                HorizontalOptions="Center" />
+
+            <!-- Profile Header -->
+            <VerticalStackLayout
+                Spacing="10"
+                HorizontalOptions="Center">
+
+                <Image
+                    Source="inspector_profile.png"
+                    HeightRequest="130"
+                    WidthRequest="130"
+                    Aspect="AspectFill"
+                    HorizontalOptions="Center" />
+
+                <Label
+                    Text="Shreya Badgaiyan"
+                    FontSize="22"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center" />
+
+                <Label
+                    Text="Field Inspector"
+                    FontSize="16"
+                    HorizontalOptions="Center" />
+
+            </VerticalStackLayout>
+
+            <!-- Inspector Details -->
+            <VerticalStackLayout Spacing="15">
+
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Employee ID:"
+                           FontAttributes="Bold"
+                           WidthRequest="115" />
+                    <Label Text="INS-1025" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Role:"
+                           FontAttributes="Bold"
+                           WidthRequest="115" />
+                    <Label Text="Senior Inspector" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Email:"
+                           FontAttributes="Bold"
+                           WidthRequest="115" />
+                    <Label Text="shreya@example.com" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Phone:"
+                           FontAttributes="Bold"
+                           WidthRequest="115" />
+                    <Label Text="+91 9876543210" />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+
+            <!-- Edit Button -->
+            <Button
+                Text="Edit Profile"
+                HorizontalOptions="Fill"
+                HeightRequest="50" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
