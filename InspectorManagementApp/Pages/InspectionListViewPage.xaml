@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:InspectorManagementApp.Pages.Controls"
+    x:Class="InspectorManagementApp.Pages.InspectionListViewPage"
+    Title="Inspection List (ListView)"
+    SafeAreaEdges="All"
+    BackgroundColor="{StaticResource PageBackgroundColor}">
+
+    <VerticalStackLayout
+        Padding="{StaticResource InspectionPagePadding}"
+        Spacing="{StaticResource InspectionPageSpacing}">
+
+        <Label
+            Text="Inspection List - ListView"
+            Style="{StaticResource InspectionPageHeadingStyle}" />
+
+        <Label
+            Text="The same inspection data displayed using ListView"
+            Style="{StaticResource InspectionPageSubtitleStyle}" />
+
+        <ListView
+            ItemsSource="{Binding Inspections}"
+            SelectionMode="Single"
+            HasUnevenRows="True"
+            SeparatorVisibility="None"
+            BackgroundColor="{StaticResource PageBackgroundColor}">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Border
+                            Padding="{StaticResource InspectionItemPadding}"
+                            Margin="{StaticResource InspectionItemMargin}"
+                            BackgroundColor="{StaticResource CardBackgroundColor}"
+                            Stroke="{StaticResource BorderColor}"
+                            StrokeThickness="{StaticResource InspectionItemStrokeThickness}"
+                            StrokeShape="RoundRectangle 12">
+
+                            <VerticalStackLayout
+                                Spacing="{StaticResource InspectionItemSpacing}">
+
+                                <Label
+                                    Text="{Binding Title}"
+                                    Style="{StaticResource InspectionItemTitleStyle}" />
+
+                                <Label
+                                    Text="{Binding Site, StringFormat='Site: {0}'}"
+                                    Style="{StaticResource InspectionItemDetailStyle}" />
+
+                                <controls:StatusBadge Status="{Binding Status}" />
+
+                                <Label
+                                    Text="{Binding ScheduledDate, StringFormat='Scheduled: {0:dd MMM yyyy}'}"
+                                    Style="{StaticResource InspectionItemDetailStyle}" />
+
+                            </VerticalStackLayout>
+                        </Border>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>

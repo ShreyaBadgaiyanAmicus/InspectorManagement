@@ -14,20 +14,23 @@
         SemanticProperties.Hint="Navigate to dashboard"/>
 
     <ShellContent
-        Title="Projects"
-        Icon="{StaticResource IconProjects}"
-        ContentTemplate="{DataTemplate pages:ProjectListPage}"
-        Route="projects"
-        SemanticProperties.Description="Projects"
-        SemanticProperties.Hint="Navigate to projects"/>
+    Title="Inspections"
+    Icon="{StaticResource IconRibbon}"
+    ContentTemplate="{DataTemplate pages:InspectionListPage}"
+    Route="inspections"
+    SemanticProperties.Description="Inspection List"
+    SemanticProperties.Hint="Navigate to inspection list"/>
 
     <ShellContent
-        Title="Manage Meta"
-        Icon="{StaticResource IconMeta}"
-        ContentTemplate="{DataTemplate pages:ManageMetaPage}"
-        Route="manage"
-        SemanticProperties.Description="Manage Meta"
-        SemanticProperties.Hint="Navigate to manage meta"/>
+    Title="Inspections (ListView)"
+    Icon="{StaticResource IconRibbon}"
+    ContentTemplate="{DataTemplate pages:InspectionListViewPage}"
+    Route="inspections-listview"
+    SemanticProperties.Description="Inspection List using ListView"
+    SemanticProperties.Hint="Navigate to ListView inspection list"/>
+
+ 
+
 
 
     <ShellContent

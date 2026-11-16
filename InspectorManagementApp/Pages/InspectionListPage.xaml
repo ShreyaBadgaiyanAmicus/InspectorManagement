@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:InspectorManagementApp.Pages.Controls"
+    x:Class="InspectorManagementApp.Pages.InspectionListPage"
+    Title="Inspections"
+    SafeAreaEdges="All"
+    BackgroundColor="{StaticResource PageBackgroundColor}">
+
+    <VerticalStackLayout
+        Padding="{StaticResource InspectionPagePadding}"
+        Spacing="{StaticResource InspectionPageSpacing}">
+
+        <Label
+            Text="Inspection List"
+            Style="{StaticResource InspectionPageHeadingStyle}" />
+
+        <Label
+            Text="View all scheduled inspections"
+            Style="{StaticResource InspectionPageSubtitleStyle}" />
+
+        <CollectionView
+            ItemsSource="{Binding Inspections}"
+            SelectionMode="Single"
+            SelectedItem="{Binding SelectedInspection, Mode=TwoWay}">
+
+            <CollectionView.EmptyView>
+                <Label
+                    Text="No inspections available."
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    TextColor="{StaticResource SecondaryTextColor}" />
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Padding="{StaticResource InspectionItemPadding}"
+                        Margin="{StaticResource InspectionItemMargin}"
+                        BackgroundColor="{StaticResource CardBackgroundColor}"
+                        Stroke="{StaticResource BorderColor}"
+                        StrokeThickness="{StaticResource InspectionItemStrokeThickness}"
+                        StrokeShape="RoundRectangle 12">
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+
+                                <VisualState Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter
+                                            Property="BackgroundColor"
+                                            Value="{StaticResource CardBackgroundColor}" />
+                                        <Setter
+                                            Property="Stroke"
+                                            Value="{StaticResource BorderColor}" />
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                                <VisualState Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter
+                                            Property="BackgroundColor"
+                                            Value="{StaticResource InspectionSelectedBackgroundColor}" />
+                                        <Setter
+                                            Property="Stroke"
+                                            Value="{StaticResource InspectionSelectedBorderColor}" />
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <VerticalStackLayout
+                            Spacing="{StaticResource InspectionItemSpacing}">
+
+                            <Label
+                                Text="{Binding Title}"
+                                Style="{StaticResource InspectionItemTitleStyle}" />
+
+                            <Label
+                                Text="{Binding Site, StringFormat='Site: {0}'}"
+                                Style="{StaticResource InspectionItemDetailStyle}" />
+
+                            <controls:StatusBadge Status="{Binding Status}" />
+
+                            <Label
+                                Text="{Binding ScheduledDate, StringFormat='Scheduled: {0:dd MMM yyyy}'}"
+                                Style="{StaticResource InspectionItemDetailStyle}" />
+
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -2,22 +2,27 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:InspectorManagementApp.Pages.Controls"
     x:Class="InspectorManagementApp.Pages.DashboardPage"
-    Title="Dashboard">
+    Title="Dashboard"
+    BackgroundColor="{StaticResource PageBackgroundColor}">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="20">
+        <VerticalStackLayout
+            Padding="{StaticResource DashboardPagePadding}"
+            Spacing="{StaticResource DashboardPageSpacing}">
 
             <!-- Dashboard Heading -->
-            <VerticalStackLayout Spacing="5">
+            <VerticalStackLayout Spacing="{StaticResource DashboardHeadingSpacing}">
+
                 <Label
                     Text="Inspector Dashboard"
-                    FontSize="26"
-                    FontAttributes="Bold" />
+                    Style="{StaticResource DashboardHeadingStyle}" />
 
                 <Label
                     Text="Overview of inspection activities"
-                    FontSize="14" />
+                    Style="{StaticResource DashboardSubtitleStyle}" />
+
             </VerticalStackLayout>
 
             <!-- Summary Cards -->
@@ -26,133 +31,153 @@
                 ColumnDefinitions="*, 12, *">
 
                 <!-- Total -->
-                <Border
+                <ContentView
                     Grid.Row="0"
                     Grid.Column="0"
-                    Padding="16"
-                    StrokeThickness="1"
-                    StrokeShape="RoundRectangle 12">
+                    ControlTemplate="{StaticResource CardControlTemplate}">
 
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="Total Inspections" FontSize="13"/>
-                        <Label Text="24"
-                               FontSize="30"
-                               FontAttributes="Bold"/>
+                    <VerticalStackLayout Spacing="{StaticResource DashboardCardSpacing}">
+                        <Label
+                            Text="Total Inspections"
+                            Style="{StaticResource DashboardMetricLabelStyle}" />
+
+                        <Label
+                            Text="24"
+                            Style="{StaticResource DashboardMetricValueStyle}" />
                     </VerticalStackLayout>
-                </Border>
+                </ContentView>
 
                 <!-- Pending -->
-                <Border
+                <ContentView
                     Grid.Row="0"
                     Grid.Column="2"
-                    Padding="16"
-                    StrokeThickness="1"
-                    StrokeShape="RoundRectangle 12">
+                    ControlTemplate="{StaticResource CardControlTemplate}">
 
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="Pending" FontSize="13"/>
-                        <Label Text="6"
-                               FontSize="30"
-                               FontAttributes="Bold"/>
+                    <VerticalStackLayout Spacing="{StaticResource DashboardCardSpacing}">
+                        <Label
+                            Text="Pending"
+                            Style="{StaticResource DashboardMetricLabelStyle}" />
+
+                        <Label
+                            Text="6"
+                            Style="{StaticResource DashboardMetricValueStyle}" />
                     </VerticalStackLayout>
-                </Border>
+                </ContentView>
 
                 <!-- In Progress -->
-                <Border
+                <ContentView
                     Grid.Row="2"
                     Grid.Column="0"
-                    Padding="16"
-                    StrokeThickness="1"
-                    StrokeShape="RoundRectangle 12">
+                    ControlTemplate="{StaticResource CardControlTemplate}">
 
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="In Progress" FontSize="13"/>
-                        <Label Text="8"
-                               FontSize="30"
-                               FontAttributes="Bold"/>
+                    <VerticalStackLayout Spacing="{StaticResource DashboardCardSpacing}">
+                        <Label
+                            Text="In Progress"
+                            Style="{StaticResource DashboardMetricLabelStyle}" />
+
+                        <Label
+                            Text="8"
+                            Style="{StaticResource DashboardMetricValueStyle}" />
                     </VerticalStackLayout>
-                </Border>
+                </ContentView>
 
                 <!-- Completed -->
-                <Border
+                <ContentView
                     Grid.Row="2"
                     Grid.Column="2"
-                    Padding="16"
-                    StrokeThickness="1"
-                    StrokeShape="RoundRectangle 12">
+                    ControlTemplate="{StaticResource CardControlTemplate}">
 
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="Completed" FontSize="13"/>
-                        <Label Text="10"
-                               FontSize="30"
-                               FontAttributes="Bold"/>
+                    <VerticalStackLayout Spacing="{StaticResource DashboardCardSpacing}">
+                        <Label
+                            Text="Completed"
+                            Style="{StaticResource DashboardMetricLabelStyle}" />
+
+                        <Label
+                            Text="10"
+                            Style="{StaticResource DashboardMetricValueStyle}" />
                     </VerticalStackLayout>
-                </Border>
+                </ContentView>
 
             </Grid>
 
             <!-- Today's Inspections -->
-            <VerticalStackLayout Spacing="15">
+            <VerticalStackLayout Spacing="{StaticResource DashboardSectionSpacing}">
 
                 <Label
                     Text="Today's Inspections"
-                    FontSize="21"
-                    FontAttributes="Bold"/>
+                    Style="{StaticResource DashboardSectionHeadingStyle}" />
 
                 <!-- Inspection 1 -->
-                <Border Padding="14"
-                        StrokeThickness="1"
-                        StrokeShape="RoundRectangle 10">
-                    <VerticalStackLayout Spacing="5">
-                        <Label Text="Factory Safety Inspection"
-                               FontSize="16"
-                               FontAttributes="Bold"/>
-                        <Label Text="Site: Industrial Area, Building A"
-                               FontSize="13"/>
-                        <Label Text="Scheduled: 10:00 AM"
-                               FontSize="13"/>
+                <Border Style="{StaticResource DashboardInspectionCardStyle}">
+                    <VerticalStackLayout Spacing="{StaticResource DashboardInspectionSpacing}">
+
+                        <Label
+                            Text="Factory Safety Inspection"
+                            Style="{StaticResource DashboardInspectionTitleStyle}" />
+
+                        <Label
+                            Text="Site: Industrial Area, Building A"
+                            Style="{StaticResource DashboardDetailStyle}" />
+
+                        <Label
+                            Text="Scheduled: 10:00 AM"
+                            Style="{StaticResource DashboardDetailStyle}" />
+
+                        <controls:StatusBadge Status="In Progress" />
+
                     </VerticalStackLayout>
                 </Border>
 
                 <!-- Inspection 2 -->
-                <Border Padding="14"
-                        StrokeThickness="1"
-                        StrokeShape="RoundRectangle 10">
-                    <VerticalStackLayout Spacing="5">
-                        <Label Text="Equipment Quality Check"
-                               FontSize="16"
-                               FontAttributes="Bold"/>
-                        <Label Text="Site: Manufacturing Unit 2"
-                               FontSize="13"/>
-                        <Label Text="Scheduled: 12:30 PM"
-                               FontSize="13"/>
+                <Border Style="{StaticResource DashboardInspectionCardStyle}">
+                    <VerticalStackLayout Spacing="{StaticResource DashboardInspectionSpacing}">
+
+                        <Label
+                            Text="Equipment Quality Check"
+                            Style="{StaticResource DashboardInspectionTitleStyle}" />
+
+                        <Label
+                            Text="Site: Manufacturing Unit 2"
+                            Style="{StaticResource DashboardDetailStyle}" />
+
+                        <Label
+                            Text="Scheduled: 12:30 PM"
+                            Style="{StaticResource DashboardDetailStyle}" />
+
+                        <controls:StatusBadge Status="Pending" />
+
                     </VerticalStackLayout>
                 </Border>
 
                 <!-- Inspection 3 -->
-                <Border Padding="14"
-                        StrokeThickness="1"
-                        StrokeShape="RoundRectangle 10">
-                    <VerticalStackLayout Spacing="5">
-                        <Label Text="Building Compliance Review"
-                               FontSize="16"
-                               FontAttributes="Bold"/>
-                        <Label Text="Site: Office Complex"
-                               FontSize="13"/>
-                        <Label Text="Scheduled: 03:00 PM"
-                               FontSize="13"/>
+                <Border Style="{StaticResource DashboardInspectionCardStyle}">
+                    <VerticalStackLayout Spacing="{StaticResource DashboardInspectionSpacing}">
+
+                        <Label
+                            Text="Building Compliance Review"
+                            Style="{StaticResource DashboardInspectionTitleStyle}" />
+
+                        <Label
+                            Text="Site: Office Complex"
+                            Style="{StaticResource DashboardDetailStyle}" />
+
+                        <Label
+                            Text="Scheduled: 03:00 PM"
+                            Style="{StaticResource DashboardDetailStyle}" />
+
+                        <controls:StatusBadge Status="Completed" />
+
                     </VerticalStackLayout>
                 </Border>
 
             </VerticalStackLayout>
 
             <!-- Inspection Priority Tags -->
-            <VerticalStackLayout Spacing="10">
+            <VerticalStackLayout Spacing="{StaticResource DashboardPrioritySpacing}">
 
                 <Label
                     Text="Inspection Priorities"
-                    FontSize="18"
-                    FontAttributes="Bold"/>
+                    Style="{StaticResource ProfileSectionHeadingStyle}" />
 
                 <FlexLayout
                     Direction="Row"
@@ -160,22 +185,28 @@
                     JustifyContent="Start"
                     AlignItems="Center">
 
-                    <Border Padding="14,8"
-                            Margin="0,0,8,8"
-                            StrokeShape="RoundRectangle 20">
-                        <Label Text="High"/>
+                    <Border
+                        Style="{StaticResource DashboardPriorityTagStyle}"
+                        Margin="{StaticResource DashboardPriorityTagMargin}">
+                        <Label
+                            Text="High"
+                            Style="{StaticResource DashboardPriorityTextStyle}" />
                     </Border>
 
-                    <Border Padding="14,8"
-                            Margin="0,0,8,8"
-                            StrokeShape="RoundRectangle 20">
-                        <Label Text="Medium"/>
+                    <Border
+                        Style="{StaticResource DashboardPriorityTagStyle}"
+                        Margin="{StaticResource DashboardPriorityTagMargin}">
+                        <Label
+                            Text="Medium"
+                            Style="{StaticResource DashboardPriorityTextStyle}" />
                     </Border>
 
-                    <Border Padding="14,8"
-                            Margin="0,0,8,8"
-                            StrokeShape="RoundRectangle 20">
-                        <Label Text="Low"/>
+                    <Border
+                        Style="{StaticResource DashboardPriorityTagStyle}"
+                        Margin="{StaticResource DashboardPriorityTagMargin}">
+                        <Label
+                            Text="Low"
+                            Style="{StaticResource DashboardPriorityTextStyle}" />
                     </Border>
 
                 </FlexLayout>

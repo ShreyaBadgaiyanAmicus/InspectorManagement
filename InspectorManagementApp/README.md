@@ -164,7 +164,10 @@ visibility, accessibility and the overall user experience.
 ## 5. Create DashboardPage using a Grid: four summary cards (Total, Pending, In Progress, Completed) with hardcoded counts for now, and a 'Today's inspections' area. Show priority tags (High, Medium, Low) in a FlexLayout so that they wrap onto the next line when there is no room. In a comment, explain where you used Auto, * (star) and absolute sizes in your row and column definitions and why.
 
 
-![Inspector Management App running on Android Emulator](Screenshots/Assignment1/task5_1.png)
+<img src="Screenshots/Assignment1/task5_1.png"
+     alt="CollectionView running on Android Emulator"
+     width="300" />
+
 
 ---
 
@@ -173,7 +176,134 @@ visibility, accessibility and the overall user experience.
 
 ## 6. Test the layout in portrait and landscape and on a small and a large emulator. Nothing may be clipped or overlapping. Save before and after screenshots in a /docs folder and note what you had to change.
 
+## Task 6 – Responsive Layout Testing
+
+### Testing Devices
+
+The dashboard was tested on two Android emulator profiles:
+
+- **Small Device:** Pixel 4a
+- **Large Device:** Pixel 9
+
+Both devices were tested in portrait and landscape orientations.
+
+### Test Results
+
+| Device | Orientation | Result |
+|---|---|---|
+| Pixel 4a | Portrait | Passed |
+| Pixel 4a | Landscape | Passed |
+| Pixel 9 | Portrait | Passed |
+| Pixel 9 | Landscape | Passed |
+
+### Observations
+
+- Dashboard content remains readable across different screen sizes.
+- Summary cards maintain a two-column layout.
+- Inspection details are displayed correctly.
+- The `ScrollView` allows users to scroll vertically when content exceeds the available screen height.
+- No horizontal clipping or major layout issues were observed.
+- The layout works in both portrait and landscape orientations.
+
+### Conclusion
+
+Responsive testing was completed successfully on small and large Android emulator profiles.
+
+<img src="Screenshots/Assignment1/task6_small1.png"
+     alt="CollectionView running on Android Emulator"
+     width="300" />
+
+<img src="Screenshots/Assignment1/task6_small2.png"
+     alt="ListView running on Android Emulator"
+     width="300" />
+
+<img src="Screenshots/Assignment1/task6_large1.png"
+     alt="CollectionView running on Android Emulator"
+     width="300" />
+
+<img src="Screenshots/Assignment1/task6_large2.png"
+     alt="ListView running on Android Emulator"
+     width="300" />
+
 
 
 
 ## 7. Create InspectionListPage using a CollectionView with at least 10 hardcoded inspections (title, site, status, scheduled date) and an ItemTemplate. Highlight the selected item. Then build the same list once using a ListView and write a short comparison: which one would you choose for a list of 1,000 items, and why?
+
+<img src="Screenshots/Assignment1/task7_1.png"
+     alt="CollectionView running on Android Emulator"
+     width="300" />
+
+<img src="Screenshots/Assignment1/task7_2.png"
+     alt="ListView running on Android Emulator"
+     width="300" />
+
+### Implementation
+
+Created two inspection list pages using the same `Inspection` model and 10 hardcoded inspection records.
+
+**1. CollectionView**
+- Displays inspections using an `ItemTemplate`.
+- Supports single-item selection.
+- Highlights the selected item using Visual States.
+- Provides better performance for larger data collections.
+
+**2. ListView**
+- Displays the same 10 inspection records.
+- Uses `ViewCell` and an `ItemTemplate`.
+- Included for comparison with CollectionView.
+
+### CollectionView vs ListView
+
+| Feature | CollectionView | ListView |
+|---|---|---|
+| Performance | Better for large lists | Less efficient for large lists |
+| Layout | Supports flexible layouts | Primarily list-based |
+| Selection | Supports item selection | Supports item selection |
+| Status | Recommended for modern MAUI apps | Deprecated |
+
+### Which would I choose for 1,000 items?
+
+I would choose **CollectionView** because it provides better performance, supports flexible layouts, and is the recommended control for displaying collections in modern .NET MAUI applications.
+
+ListView is deprecated, so CollectionView is the better choice for new applications.
+
+
+## 8. Use at least five different common controls across your pages (for example Label, Button, Entry, Image, Picker, Switch, DatePicker). Include an image and a custom font added through the project's Resources.
+
+Controls:
+
+<img src="Screenshots/Assignment1/task8_1.png"
+     alt="CollectionView running on Android Emulator"
+     width="300" />
+
+Font:
+
+<img src="Screenshots/Assignment1/task8_2.png"
+     alt="ListView running on Android Emulator"
+     width="300" />
+
+
+## 9. Move every colour, font size and spacing value into a ResourceDictionary. No page may contain a hardcoded colour. Use StaticResource and define at least one implicit style and two explicit styles.
+
+Moved commonly used colours, font sizes, spacing, padding, and dimensions into shared ResourceDictionaries (`Colors.xaml` and `Styles.xaml`).
+
+- Used `StaticResource` to apply shared resources across Dashboard, Inspector Profile, and Inspection List pages.
+- Created implicit styles for common controls such as Labels, Buttons, and Borders.
+- Created explicit styles for page headings, cards, dashboard sections, and inspection list items.
+- Removed hardcoded styling values from the updated pages to maintain a consistent UI and simplify future changes.
+
+**Result:** Improved UI consistency, reusability, and maintainability.
+
+
+## 10. Create a reusable custom control StatusBadge (a ContentView with a bindable Status property) that shows Pending, In Progress or Completed in a different colour. Use it on the list and on the dashboard. Create a ControlTemplate for a card and use it on both the dashboard and the profile page.
+
+
+<img src="Screenshots/Assignment1/task10_1.png"
+     alt="ListView running on Android Emulator"
+     width="300" />
+
+
+## 11. Write REFACTOR.md: list at least 3 places where you removed duplicated XAML or simplified a layout, with a short before and after for each.
+
+`REFACTOR.md`

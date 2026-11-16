@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary>
 
-    <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
-
+    <!-- Existing Theme Colors -->
     <Color x:Key="Primary">#512BD4</Color>
     <Color x:Key="PrimaryDark">#ac99ea</Color>
     <Color x:Key="PrimaryDarkText">#242424</Color>
@@ -9,6 +8,7 @@
     <Color x:Key="SecondaryDarkText">#9880e5</Color>
     <Color x:Key="Tertiary">#2B0B98</Color>
 
+    <!-- Background Colors -->
     <Color x:Key="DarkBackground">#17171a</Color>
     <Color x:Key="LightOnDarkBackground">#C3C3C3</Color>
     <Color x:Key="LightBackground">#F2F2F2</Color>
@@ -17,12 +17,14 @@
     <Color x:Key="LightSecondaryBackground">#E0E0E0</Color>
     <Color x:Key="DarkSecondaryBackground">#222228</Color>
 
+    <!-- Basic Colors -->
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="Magenta">#D600AA</Color>
     <Color x:Key="MidnightBlue">#190649</Color>
     <Color x:Key="OffBlack">#1f1f1f</Color>
 
+    <!-- Gray Shades -->
     <Color x:Key="Gray100">#E1E1E1</Color>
     <Color x:Key="Gray200">#C8C8C8</Color>
     <Color x:Key="Gray300">#ACACAC</Color>
@@ -32,6 +34,18 @@
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
 
+    <!-- Inspector Profile Colors -->
+    <Color x:Key="PageBackgroundColor">#F5F6FA</Color>
+    <Color x:Key="CardBackgroundColor">#FFFFFF</Color>
+    <Color x:Key="PrimaryTextColor">#202938</Color>
+    <Color x:Key="SecondaryTextColor">#7A8494</Color>
+    <Color x:Key="MutedTextColor">#6B7280</Color>
+    <Color x:Key="BorderColor">#E5E8EF</Color>
+    <Color x:Key="InputBackgroundColor">#F7F8FC</Color>
+    <Color x:Key="AccentLightColor">#EEE9FF</Color>
+    <Color x:Key="LabelTextColor">#465164</Color>
+
+    <!-- Brushes -->
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
@@ -46,4 +60,19 @@
     <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
     <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
     <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
+
+    <Color x:Key="InspectionSelectedBackgroundColor">#DCEBFF</Color>
+    <Color x:Key="InspectionSelectedBorderColor">#2474D2</Color>
+
+
+    <Color x:Key="PendingBadgeBackgroundColor">#FFF3CD</Color>
+    <Color x:Key="PendingBadgeTextColor">#856404</Color>
+
+    <Color x:Key="InProgressBadgeBackgroundColor">#DCEBFF</Color>
+    <Color x:Key="InProgressBadgeTextColor">#245A9C</Color>
+
+    <Color x:Key="CompletedBadgeBackgroundColor">#D9F2E3</Color>
+    <Color x:Key="CompletedBadgeTextColor">#216B45</Color>
+
+
 </ResourceDictionary>

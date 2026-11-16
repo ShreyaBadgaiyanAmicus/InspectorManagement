@@ -4,83 +4,273 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="InspectorManagementApp.Pages.InspectorProfilePage"
     Title="Inspector Profile"
+    BackgroundColor="{StaticResource PageBackgroundColor}"
     SafeAreaEdges="All">
 
     <ScrollView>
         <VerticalStackLayout
-            Padding="25"
-            Spacing="20">
+            Padding="{StaticResource PagePadding}"
+            Spacing="{StaticResource PageSpacing}">
 
             <!-- Page Heading -->
-            <Label
-                Text="Inspector Profile"
-                FontSize="26"
-                FontAttributes="Bold"
-                HorizontalOptions="Center" />
-
-            <!-- Profile Header -->
-            <VerticalStackLayout
-                Spacing="10"
-                HorizontalOptions="Center">
-
-                <Image
-                    Source="inspector_profile.png"
-                    HeightRequest="130"
-                    WidthRequest="130"
-                    Aspect="AspectFill"
-                    HorizontalOptions="Center" />
+            <VerticalStackLayout Spacing="{StaticResource SmallSpacing}">
+                <Label
+                    Text="My Profile"
+                    Style="{StaticResource ProfilePageHeadingStyle}" />
 
                 <Label
-                    Text="Shreya Badgaiyan"
-                    FontSize="22"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Center" />
-
-                <Label
-                    Text="Field Inspector"
-                    FontSize="16"
-                    HorizontalOptions="Center" />
-
+                    Text="Manage your inspector information"
+                    FontSize="{StaticResource BodyFontSize}"
+                    FontFamily="{StaticResource RegularFontFamily}"
+                    TextColor="{StaticResource SecondaryTextColor}" />
             </VerticalStackLayout>
 
-            <!-- Inspector Details -->
-            <VerticalStackLayout Spacing="15">
+            <!-- Profile Card -->
+            <ContentView
+                ControlTemplate="{StaticResource CardControlTemplate}">
 
-                <HorizontalStackLayout Spacing="10">
-                    <Label Text="Employee ID:"
-                           FontAttributes="Bold"
-                           WidthRequest="115" />
-                    <Label Text="INS-1025" />
-                </HorizontalStackLayout>
+                <VerticalStackLayout
+                    Spacing="{StaticResource ProfileContentSpacing}"
+                    HorizontalOptions="Center">
 
-                <HorizontalStackLayout Spacing="10">
-                    <Label Text="Role:"
-                           FontAttributes="Bold"
-                           WidthRequest="115" />
-                    <Label Text="Senior Inspector" />
-                </HorizontalStackLayout>
+                    <Image
+                        Source="inspector_profile.png"
+                        HeightRequest="{StaticResource ProfileImageSize}"
+                        WidthRequest="{StaticResource ProfileImageSize}"
+                        Aspect="AspectFit"
+                        HorizontalOptions="Center" />
 
-                <HorizontalStackLayout Spacing="10">
-                    <Label Text="Email:"
-                           FontAttributes="Bold"
-                           WidthRequest="115" />
-                    <Label Text="shreya@example.com" />
-                </HorizontalStackLayout>
+                    <Label
+                        Text="Shreya Badgaiyan"
+                        FontSize="{StaticResource NameFontSize}"
+                        FontFamily="{StaticResource SemiboldFontFamily}"
+                        TextColor="{StaticResource PrimaryTextColor}"
+                        HorizontalOptions="Center" />
 
-                <HorizontalStackLayout Spacing="10">
-                    <Label Text="Phone:"
-                           FontAttributes="Bold"
-                           WidthRequest="115" />
-                    <Label Text="+91 9876543210" />
-                </HorizontalStackLayout>
+                    <Label
+                        Text="Field Inspector"
+                        FontSize="{StaticResource BodyFontSize}"
+                        FontFamily="{StaticResource RegularFontFamily}"
+                        TextColor="{StaticResource MutedTextColor}"
+                        HorizontalOptions="Center" />
 
-            </VerticalStackLayout>
+                    <Border
+                        BackgroundColor="{StaticResource AccentLightColor}"
+                        StrokeThickness="{StaticResource ZeroValue}"
+                        Padding="{StaticResource BadgePadding}"
+                        HorizontalOptions="Center">
 
-            <!-- Edit Button -->
+                        <Border.StrokeShape>
+                            <RoundRectangle
+                                CornerRadius="{StaticResource BadgeCornerRadius}" />
+                        </Border.StrokeShape>
+
+                        <Label
+                            Text="Senior Inspector"
+                            FontSize="{StaticResource CaptionFontSize}"
+                            FontFamily="{StaticResource SemiboldFontFamily}"
+                            TextColor="{StaticResource Primary}"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center" />
+
+                    </Border>
+
+                </VerticalStackLayout>
+            </ContentView>
+
+            <!-- Personal Information Card -->
+            <ContentView
+                ControlTemplate="{StaticResource CardControlTemplate}">
+
+                <VerticalStackLayout Spacing="{StaticResource SectionSpacing}">
+
+                    <Label
+                        Text="Personal Information"
+                        Style="{StaticResource ProfileSectionHeadingStyle}" />
+
+                    <Grid
+                        RowDefinitions="Auto,Auto,Auto,Auto"
+                        RowSpacing="{StaticResource ControlSpacing}">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                Width="{StaticResource ProfileLabelColumnWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Text="Employee ID"
+                            FontSize="{StaticResource LabelFontSize}"
+                            FontFamily="{StaticResource RegularFontFamily}"
+                            TextColor="{StaticResource SecondaryTextColor}" />
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Text="INS-1025"
+                            FontSize="{StaticResource BodyFontSize}"
+                            FontFamily="{StaticResource SemiboldFontFamily}"
+                            TextColor="{StaticResource PrimaryTextColor}" />
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Text="Role"
+                            FontSize="{StaticResource LabelFontSize}"
+                            FontFamily="{StaticResource RegularFontFamily}"
+                            TextColor="{StaticResource SecondaryTextColor}" />
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="Senior Inspector"
+                            FontSize="{StaticResource BodyFontSize}"
+                            FontFamily="{StaticResource RegularFontFamily}"
+                            TextColor="{StaticResource PrimaryTextColor}" />
+
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Text="Email"
+                            FontSize="{StaticResource LabelFontSize}"
+                            FontFamily="{StaticResource RegularFontFamily}"
+                            TextColor="{StaticResource SecondaryTextColor}" />
+
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Text="shreya@example.com"
+                            FontSize="{StaticResource BodyFontSize}"
+                            FontFamily="{StaticResource RegularFontFamily}"
+                            TextColor="{StaticResource PrimaryTextColor}" />
+
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Text="Phone"
+                            FontSize="{StaticResource LabelFontSize}"
+                            FontFamily="{StaticResource RegularFontFamily}"
+                            TextColor="{StaticResource SecondaryTextColor}" />
+
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Text="+91 9876543210"
+                            FontSize="{StaticResource BodyFontSize}"
+                            FontFamily="{StaticResource RegularFontFamily}"
+                            TextColor="{StaticResource PrimaryTextColor}" />
+
+                    </Grid>
+                </VerticalStackLayout>
+            </ContentView>
+
+            <!-- Profile Settings Card -->
+            <ContentView
+                ControlTemplate="{StaticResource CardControlTemplate}">
+
+                <VerticalStackLayout Spacing="{StaticResource ControlSpacing}">
+
+                    <Label
+                        Text="Profile Settings"
+                        Style="{StaticResource ProfileSectionHeadingStyle}" />
+
+                    <!-- Entry -->
+                    <Label
+                        Text="Emergency Contact"
+                        FontSize="{StaticResource LabelFontSize}"
+                        FontFamily="{StaticResource SemiboldFontFamily}"
+                        TextColor="{StaticResource LabelTextColor}" />
+
+                    <Entry
+                        Placeholder="Enter 10-digit contact number"
+                        Keyboard="Telephone"
+                        MaxLength="10"
+                        ClearButtonVisibility="WhileEditing"
+                        BackgroundColor="{StaticResource InputBackgroundColor}"
+                        TextColor="{StaticResource PrimaryTextColor}"
+                        FontFamily="{StaticResource RegularFontFamily}" />
+
+                    <!-- Picker -->
+                    <Label
+                        Text="Assigned Department"
+                        FontSize="{StaticResource LabelFontSize}"
+                        FontFamily="{StaticResource SemiboldFontFamily}"
+                        TextColor="{StaticResource LabelTextColor}" />
+
+                    <Picker
+                        Title="Select Department"
+                        BackgroundColor="{StaticResource InputBackgroundColor}"
+                        TextColor="{StaticResource PrimaryTextColor}"
+                        FontFamily="{StaticResource RegularFontFamily}">
+
+                        <Picker.Items>
+                            <x:String>Safety</x:String>
+                            <x:String>Quality Assurance</x:String>
+                            <x:String>Maintenance</x:String>
+                            <x:String>Environment</x:String>
+                        </Picker.Items>
+
+                    </Picker>
+
+                    <!-- Switch -->
+                    <Grid VerticalOptions="Center">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <VerticalStackLayout Spacing="{StaticResource TightSpacing}">
+                            <Label
+                                Text="Notifications"
+                                FontSize="{StaticResource BodyFontSize}"
+                                FontFamily="{StaticResource SemiboldFontFamily}"
+                                TextColor="{StaticResource PrimaryTextColor}" />
+
+                            <Label
+                                Text="Receive inspection updates"
+                                FontSize="{StaticResource CaptionFontSize}"
+                                FontFamily="{StaticResource RegularFontFamily}"
+                                TextColor="{StaticResource SecondaryTextColor}" />
+                        </VerticalStackLayout>
+
+                        <Switch
+                            Grid.Column="1"
+                            IsToggled="True"
+                            OnColor="{StaticResource Primary}"
+                            ThumbColor="{StaticResource White}"
+                            VerticalOptions="Center" />
+
+                    </Grid>
+
+                    <!-- DatePicker -->
+                    <Label
+                        Text="Available From"
+                        FontSize="{StaticResource LabelFontSize}"
+                        FontFamily="{StaticResource SemiboldFontFamily}"
+                        TextColor="{StaticResource LabelTextColor}" />
+
+                    <DatePicker
+                        Format="dd MMM yyyy"
+                        TextColor="{StaticResource PrimaryTextColor}"
+                        BackgroundColor="{StaticResource InputBackgroundColor}"
+                        FontFamily="{StaticResource RegularFontFamily}" />
+
+                </VerticalStackLayout>
+            </ContentView>
+
+            <!-- Save Button -->
             <Button
-                Text="Edit Profile"
-                HorizontalOptions="Fill"
-                HeightRequest="50" />
+                Text="Save Profile"
+                FontSize="{StaticResource ButtonFontSize}"
+                FontFamily="{StaticResource SemiboldFontFamily}"
+                TextColor="{StaticResource White}"
+                BackgroundColor="{StaticResource Primary}"
+                CornerRadius="{StaticResource SaveButtonCornerRadius}"
+                HeightRequest="{StaticResource SaveButtonHeight}"
+                HorizontalOptions="Fill" />
 
         </VerticalStackLayout>
     </ScrollView>
