@@ -35,6 +35,7 @@
 
     <ShellContent
     Title="Inspector Profile"
+    Icon="{StaticResource IconRibbon}"
     ContentTemplate="{DataTemplate pages:InspectorProfilePage}"
     Route="inspector-profile"
     SemanticProperties.Description="Inspector Profile"
